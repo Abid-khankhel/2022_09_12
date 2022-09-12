@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <-<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>monday</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./bootstrap-2.min.css">
+        <script src="./bootstrap-2.bundle.min.js"></script>
+        <link rel="stylesheet" href="">
+    </head>
+<style>
+input{
+border: 5px solid gray;
+}
+
+input.valid{
+
+    border-color: green ;
+}
+
+input.invalid{
+
+border-color:red ;
+}
+input + p{
+opacity: 0;
+
+
+}
+input.invalid + p {
+color: red;
+border-color: red;
+    opacity: 1;
+}
+
+
+
+
+</style>
+
+
+
+
+    <body>
+      <marquee behavior="" direction="rtl"><h1>monday lecture</h1></marquee><br><hr>
+        
+      <input type="text" name="email" id="email" >
+<p>invalid email! email must have @ .com .af e.g: example@gmail.com</p>
+
+
+    </body>
+    <script>
+const input = document.querySelector('#email');
+
+function vaildate(field, regex){
+
+if(regex.test(field.value)){
+field.className = 'valid'
+}
+else{
+field.className= 'invalid'
+
+}
+
+}
+
+input.addEventListener('keyup',function(e){
+
+
+// console.log(e.target.attributes.name.value)
+
+
+vaildate(e.target, /^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9]{2,8})\.([a-zA-Z0-9]{2,8})(\.[a-zA-Z0-9]{2,8})?$/)
+
+
+})
+
+
+
+
+
+    </script>
+</html>
