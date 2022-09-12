@@ -52,12 +52,25 @@ border-color: red;
         
       <input type="text" name="email" id="email" >
 <p>invalid email! email must have @ .com .af e.g: example@gmail.com</p>
+<input type="text" name="phone" id="phone" >
+<p>invalid number! 0780031543 </p>
+
+<input type="password" name="password" id="password" >
+<p>invalid password! khankhel@123 </p>
 
 
     </body>
     <script>
-const input = document.querySelector('#email');
+const inputs = document.querySelectorAll('input')
 
+const patterns ={
+
+email:/^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9]{2,8})\.([a-zA-Z0-9]{2,8})(\.[a-zA-Z0-9]{2,8})?$/,
+
+phone:/^\d{10}$/,
+pass:/^[\w@-_]{6,20}$/,
+
+}
 function vaildate(field, regex){
 
 if(regex.test(field.value)){
@@ -70,16 +83,45 @@ field.className= 'invalid'
 
 }
 
-input.addEventListener('keyup',function(e){
+inputs.forEach(function(input){
+
+input.addEventListener('key',function(e){
 
 
-// console.log(e.target.attributes.name.value)
+vaildate(e.target, patterns[e.target.attributes.name.value])
+
+})
 
 
-vaildate(e.target, /^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9]{2,8})\.([a-zA-Z0-9]{2,8})(\.[a-zA-Z0-9]{2,8})?$/)
 
 
 })
+
+
+// const input = document.querySelector('#email');
+
+// function vaildate(field, regex){
+
+// if(regex.test(field.value)){
+// field.className = 'valid'
+// }
+// else{
+// field.className= 'invalid'
+
+// }
+
+// }
+
+// input.addEventListener('keyup',function(e){
+
+
+// // console.log(e.target.attributes.name.value)
+
+
+// vaildate(e.target, /^([a-zA-Z0-9\.-_]+)@([a-zA-Z0-9]{2,8})\.([a-zA-Z0-9]{2,8})(\.[a-zA-Z0-9]{2,8})?$/)
+
+
+// })
 
 
 
